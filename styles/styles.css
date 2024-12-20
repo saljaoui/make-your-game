@@ -14,13 +14,28 @@
     position: relative;
 }
 
+#bricks-container {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .brick-shadow {
+    background-color: #FFFFFF;
+    display: block;
+    height: 5px;
+    width: 100%;
+  }
+
 /* Brick colors matching the image */
 .brick {
-    position: absolute;
     width: 70px;
     height: 30px;
     margin: 2px;
     border-radius: 3px;
+    overflow: hidden;
 }
 
 .brick.red { background-color: #FF0000; }
