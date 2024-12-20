@@ -16,21 +16,24 @@
 
 #bricks-container {
     position: absolute;
-    top: 20px;
+    top: 70px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
   }
 
   .brick-shadow {
-    background-color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.3);
     display: block;
     height: 5px;
     width: 100%;
+    position: absolute;
+    bottom: 0;
   }
 
 /* Brick colors matching the image */
 .brick {
+    position: relative;
     width: 70px;
     height: 30px;
     margin: 2px;
