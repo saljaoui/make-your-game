@@ -7,6 +7,14 @@
     font-family: Arial, sans-serif;
 }
 
+.brick-face {
+    width: 100%;
+    border-radius: 3px;
+    height: 85%;
+    position: absolute;
+    z-index: 1;
+}
+
 #game-area {
     width: 100%;
     height: 100%;
@@ -23,9 +31,9 @@
   }
 
   .brick-shadow {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     display: block;
-    height: 5px;
+    height: 30%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -41,13 +49,13 @@
     overflow: hidden;
 }
 
-.brick.red { background-color: #FF0000; }
-.brick.purple { background-color: #8A2BE2; }
-.brick.green { background-color: #00FF00; }
-.brick.blue { background-color: #00BFFF; }
-.brick.pink { background-color: #FF69B4; }
-.brick.yellow { background-color: #FFD700; }
-.brick.cyan { background-color: #00FFFF; }
+.red { background-color: #FF0000; }
+.purple { background-color: #8A2BE2; }
+.green { background-color: #00FF00; }
+.blue { background-color: #00BFFF; }
+.pink { background-color: #FF69B4; }
+.yellow { background-color: #FFD700; }
+.cyan { background-color: #00FFFF; }
 
 /* Paddle style */
 #paddle {
