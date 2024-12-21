@@ -1,121 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="game-container">
-        <div id="game-area">
+      <div id="game-area">
+        <div id="paddle"></div>
+        <div id="bricks-container"></div>
 
-            <div id="paddle"></div>
-            <div id="bricks-container">
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick red">
-                    <div class="brick-face red" ></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-                <div class="brick purple">
-                    <div class="brick-face purple"></div>
-                    <div class="brick-shadow"></div>
-                </div>
-            </div>
+        <!-- Paddle -->
+        <div id="paddle"></div>
 
-    <!-- Paddle -->
-    <div id="paddle"></div>
-
-    <!-- Ball -->
-    <div id="ball"></div>
-        </div>
-        <div id="score-board">
-            <div id="timer">Time: <span>0</span></div>
-            <div id="score">Score: <span>0</span></div>
-            <div id="lives">Lives: <span>3</span></div>
-        </div>
-        <div id="pause-menu" class="hidden">
-            <button id="continue">Continue</button>
-            <button id="restart">Restart</button>
-        </div>
+        <!-- Ball -->
+        <div id="ball"></div>
+      </div>
+      <div id="score-board">
+        <div id="timer">Time: <span>0</span></div>
+        <div id="score">Score: <span>0</span></div>
+        <div id="lives">Lives: <span>3</span></div>
+      </div>
+      <div id="pause-menu" class="hidden">
+        <button id="continue">Continue</button>
+        <button id="restart">Restart</button>
+      </div>
     </div>
-    
-    <!-- <script src="scripts/utils.js"></script>
-    <script src="scripts/controls.js"></script>
-    <script src="scripts/player.js"></script>
-    <script src="scripts/ui.js"></script>
-    <script src="scripts/game.js"></script> -->
-</body>
+
+    <script src="js/brick.js"></script>
+  </body>
 </html>

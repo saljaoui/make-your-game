@@ -1,6 +1,7 @@
 #game-container {
     position: relative;
-    width: 800px;
+    width: 740px;
+    padding: 3px;
     height: 600px;
     margin: 20px auto;
     background-color: #000;
@@ -61,21 +62,32 @@
 #paddle {
     position: absolute;
     bottom: 20px;
-    width: 100px;
-    height: 15px;
+    width: 150px;
+    height: 20px;
     background-color: #FFFFFF;
-    border-radius: 7px;
+    border-radius: 10px;
     transform: translateX(-50%);
+
+
+    /* just ui */
+    left: 50%;
 }
 
 /* Ball style */
 #ball {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     background-color: #FFFFFF;
     border-radius: 50%;
+    box-shadow: 0px 0px 12px #FFFFFF;
     transform: translate(-50%, -50%);
+
+
+
+    /* just ui  */
+    left: 50%;
+    top: 70%;
 }
 
 /* Score board styling */
