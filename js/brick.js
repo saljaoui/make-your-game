@@ -1,22 +1,21 @@
 let bricksContainer = document.getElementById("bricks-container");
 
-function addBricks() {
-  console.log(bricksContainer);
+function drawBricks() {
   const colorList = [
     "red",
-    "blue",
-    "green",
-    "yellow",
     "purple",
+    "green",
+    "blue",
     "pink",
+    "yellow",
     "cyan",
   ];
   for (let index = 0; index < colorList.length; index++) {
-    createElementBricks(colorList[index]);
+    createBricks(colorList[index]);
   }
 }
 
-function createElementBricks(brickColor) {
+function createBricks(brickColor) {
   for (let index = 0; index < 10; index++) {
     let brick = document.createElement("div");
     let brickFace = document.createElement("div");
@@ -35,4 +34,4 @@ function createElementBricks(brickColor) {
   }
 }
 
-addBricks();
+drawBricks();
