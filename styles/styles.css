@@ -69,11 +69,12 @@
 #paddle {
     position: absolute;
     bottom: 20px;
-    width: 150px;
+    width: 145px;
     height: 20px;
     background-color: #FFFFFF;
     border-radius: 10px;
     transform: translateX(-50%);
+    transition: left 0.02s ease;
 
 
     /* just ui */
