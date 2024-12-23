@@ -17,6 +17,7 @@ function moveBall() {
     ball.style.left = newX + 'px';
     ball.style.top = newY + 'px';
     requestAnimationFrame(moveBall);
+    
 }
 
 moveBall()
