@@ -71,6 +71,7 @@ function handleRestartButton() {
         scoreDisplay.innerHTML = 'Score: 0';
         livesDisplay.innerHTML = 'Lives: 3';
         levelDisplay.innerHTML = 'Level: 1'
+        gameStates.level = 1;
         bricksContainer.innerHTML = '';
         
         livesNum = 3;
