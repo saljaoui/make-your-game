@@ -1,57 +1,82 @@
 let bricksContainer = document.getElementById("bricks-container");
 
-let level1 = [
-    1, 1, 1, 1, 1, 1, 1,
-    0, 0, 1, 1, 1, 0, 0,
-    0, 0, 0, 1, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0,
-];
-
-let level2 = [
+let level1 = {
+  level: 1,
+  tiles: [
     1, 1, 1, 1, 1, 1, 1,
     0, 1, 1, 1, 1, 1, 0,
     0, 0, 1, 1, 1, 0, 0,
     0, 0, 0, 1, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
-];
+  ],
+}
 
-let level3 = [
+let level2 = {
+  level: 2,
+  tiles: [
     1, 1, 1, 1, 1, 1, 1,
     0, 1, 1, 1, 1, 1, 0,
     0, 0, 1, 1, 1, 0, 0,
     0, 1, 1, 1, 1, 1, 0,
     1, 1, 1, 1, 1, 1, 1,
-];
+  ],
+}
 
-let level4 = [
-    1, 0, 1, 0, 1, 0, 1,
-    0, 1, 1, 1, 1, 1, 0,
-    1, 1, 0, 0, 0, 1, 1,
-    0, 1, 1, 1, 1, 1, 0,
-    1, 0, 1, 0, 1, 0, 1,
-];
-
-let level5 = [
+let level3 = {
+  level: 3,
+  tiles: [
     1, 1, 1, 1, 1, 1, 1,
     1, 0, 1, 1, 1, 0, 1,
     1, 1, 0, 1, 0, 1, 1,
     1, 0, 1, 1, 1, 0, 1,
     1, 1, 1, 1, 1, 1, 1,
-];
+  ],
+}
+
+let level4 = {
+  level: 4,
+  tiles: [
+      1, 0, 1, 0, 1, 0, 1,
+      0, 1, 1, 1, 1, 1, 0,
+      1, 1, 0, 0, 0, 1, 1,
+      0, 1, 1, 1, 1, 1, 0,
+      1, 0, 1, 0, 1, 0, 1,
+  ],
+}
+
+let level5 = {
+  level: 5,
+  tiles: [
+      1, 1, 1, 1, 1, 1, 1,
+      1, 0, 1, 1, 1, 0, 1,
+      1, 1, 0, 1, 0, 1, 1,
+      1, 0, 1, 1, 1, 0, 1,
+      1, 1, 1, 1, 1, 1, 1,
+  ],
+}
 
 let map = {
     columns: 7,
     rows: 5,
     size: 35,
-    tiles: level1,
+    tiles: level1.tiles,
     getTile: function(col, row) {
         return this.tiles[row * this.columns + col];
     }
 };
 
 function drawBricks() {
+
+  if (gameState.level === 1) {
+    map.tiles = level1.tiles;
+  } else if (gameState.level === 2) {
+    map.tiles = level2.tiles;
+    } else if (gameState.level === 3) {
+      map.tiles = level3.tiles;
+      }
+
     livesNum = 3;
+    bricksContainer.innerHTML = '';
     const colorList = [
         "red",
         "purple",
@@ -82,6 +107,7 @@ function createBricksRow(brickColor, rowIndex) {
             
             brick.appendChild(brickFace);
             brick.appendChild(brickShadow);
+
             bricksContainer.append(brick);
         } else {
             let emptySpace = document.createElement("div");

@@ -6,10 +6,11 @@ let livesNum = 3
 let timerInterval;
 
 const gameState = {
+  level: 1,
   speed: 7,
   score: 0,
   isPaused: false,
-  ball: {x: 300, y: 520, velocityX: -2, velocityY: 3}
+  ball: { x: 300, y: 520, velocityX: -2, velocityY: 3 }
 };
 
 function bricksBreakid(ballRect) {
@@ -31,9 +32,9 @@ function bricksBreakid(ballRect) {
       brick.classList.add('breaked');
       updateScore()
       updateBallVelocity(hitPosition)
-    
+
       if (ballRect.bottom >= brickRect.top && ballRect.top <= brickRect.top) {
-        gameState.ball.velocityY *= 1 
+        gameState.ball.velocityY *= 1
       } else if (ballRect.top <= brickRect.bottom && ballRect.bottom >= brickRect.bottom) {
         gameState.ball.velocityY *= -1
       }
@@ -62,7 +63,6 @@ function moveBall() {
   }
 
   bricksBreakid(ballRect)
-  checkYouWin()
 
   if (detecteted(ballRect, paddleRect)) {
 
@@ -80,19 +80,24 @@ function moveBall() {
     }
 
     updateBallVelocity(hitPosition)
-
+    
   }
 
   ball.style.transform = `translate(${gameState.ball.x}px, ${gameState.ball.y}px)`;
 
+
+  if (gameState.ball.y > 500) {
+    checkAllIsBreaked()
+  }
+
   if (gameState.ball.y > 600) {
-        livesNum--;
-        livesDisplay.innerHTML = 'Lives: '+livesNum;
-        paddlePosition = 235;
-        gameState.ball = {x: 300, y: 520, velocityX: -2, velocityY: 3};
-        gameState.isPaused = false;
-        moveBall()
-  } else if (livesNum == 0){
+    livesNum--;
+    livesDisplay.innerHTML = 'Lives: ' + livesNum;
+    paddlePosition = 235;
+    gameState.ball = { x: 300, y: 520, velocityX: -2, velocityY: 3 };
+    gameState.isPaused = false;
+    moveBall()
+  } else if (livesNum == 0) {
     gameStates('GAME OVER')
   } else if (!gameState.isPaused) {
     requestAnimationFrame(moveBall);
@@ -119,21 +124,21 @@ function startTimer() {
   let minutes = 0;
   let secondsPrefix = '0';
   let minutesPrefix = '0';
-  
+
   timerInterval = setInterval(() => {
-      if (!gameState.isPaused) {
-          timerDisplay.innerHTML = `Timer: ${minutesPrefix}${minutes}:${secondsPrefix}${seconds}`;
-          
-          if (seconds >= 9) secondsPrefix = '';
-          if (minutes >= 9) minutesPrefix = '';
-          
-          if (seconds === 60) {
-              secondsPrefix = '0';
-              seconds = 0;
-              minutes++;
-          }
-          seconds++;
+    if (!gameState.isPaused) {
+      timerDisplay.innerHTML = `Timer: ${minutesPrefix}${minutes}:${secondsPrefix}${seconds}`;
+
+      if (seconds >= 9) secondsPrefix = '';
+      if (minutes >= 9) minutesPrefix = '';
+
+      if (seconds === 60) {
+        secondsPrefix = '0';
+        seconds = 0;
+        minutes++;
       }
+      seconds++;
+    }
   }, 1000);
 }
 
@@ -152,11 +157,26 @@ function updateScore() {
   scoreDisplay.innerHTML = `Score: ${gameState.score}`;
 }
 
-function checkYouWin() {
+function checkAllIsBreaked() {
+
   for (let brick of bricks) {
     if (!brick.classList.contains('breaked')) {
-      return
+      return false
     }
   }
-  gameStates('YOU WIN');
+  if (gameState.level === 3) {
+    gameStates('YOU WIN')
+  } else {
+    nextLevel()
+  }
 }
+
+// function levelGame() {
+
+//   for (let index = 1; index <= 5; index++) {
+//     if (gameState.level === index) {
+//       gameState.level++;
+//       drawBricks()
+
+//   }
+// }

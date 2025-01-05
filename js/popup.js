@@ -3,6 +3,7 @@ const shadowBackground = document.querySelector('.shadow-background');
 const btnPause = document.getElementById('pause');
 const timerDisplay = document.getElementById('timer');
 const livesDisplay = document.getElementById('lives');
+const levelDisplay = document.getElementById('level');
 
 function createImage() {
     const img = document.createElement('img');
@@ -42,6 +43,7 @@ function resetGameState() {
     gameState.ball = {x: 300, y: 520, velocityX: -2, velocityY: 3};
     gameState.isPaused = false;
     gameState.score = 0;
+    gameState.level = 1;
 }
 
 function handlePlayButton() {
@@ -108,6 +110,7 @@ function startGame() {
     clearPopup();
     
     popup.appendChild(createImage());
+    popup.appendChild(createHeading("start level " + gameState.level));
     popup.appendChild(createButton('Play', 'play'));
     
     showPopup();
@@ -140,6 +143,33 @@ function gameStates(textGameState) {
     handleRestartButton();
 }
 
+function nextLevel() {
+    clearPopup();
+    showPopup();
+    gameState.level += 1
+    gameState.ball = {x: 300, y: 520, velocityX: -2, velocityY: 3};
+    gameState.isPaused = true;
+    levelDisplay.innerHTML = "Level: " + gameState.level;
+    livesDisplay.innerHTML = 'Lives: 3';
+    paddlePosition = 235;
+    
+    popup.appendChild(createImage());
+    popup.appendChild(createHeading(('level ' + gameState.level)));
+    popup.appendChild(createButton('Next level', 'nextLevel'));
+    popup.appendChild(createButton('Restart', '', 'restart'));
+
+    handleRestartButton();
+    handleNextButton();
+}
+
+function handleNextButton() {
+    document.getElementById('nextLevel').addEventListener('click', () => {
+        hidePopup();
+        gameState.isPaused = false;
+        drawBricks();
+        requestAnimationFrame(moveBall);
+    });
+}
 
 btnPause.addEventListener('click', pauseGame);
 
